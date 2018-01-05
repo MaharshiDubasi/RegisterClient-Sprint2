@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">UARKRegisterApp</string>
+    <string name="title_activity_products_listing">Products</string>
+    <string name="title_activity_product_view">ProductViewActivity</string>
+    <string name="button_ok">OK</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="button_save">Save</string>
+    <string name="button_delete">Delete</string>
+    <string name="button_dismiss">Dismiss</string>
+    <string name="button_all_products">Show All Products</string>
+    <string name="button_create_product">Create Product</string>
+    <string name="text_view_landing_welcome">UARK Register App</string>
+    <string name="text_view_products_lookup_code">LookupCode</string>
+    <string name="text_view_products_count">0</string>
+    <string name="text_view_products_created_on">01/01/1970</string>
+    <string name="text_view_label_products_lookup_code">Lookup Code:</string>
+    <string name="text_view_label_products_count">Count:</string>
+    <string name="text_view_label_products_created_on">Created On:</string>
+    <string name="alert_dialog_products_loading">Loading Products</string>
+    <string name="alert_dialog_product_save">Saving Product...</string>
+    <string name="alert_dialog_product_delete">Deleting Product...</string>
+    <string name="alert_dialog_product_save_success">The product was successfully saved.</string>
+    <string name="alert_dialog_product_save_failure">An issue was encountered when attempting to save the product. The changes were not saved.</string>
+    <string name="alert_dialog_product_delete_success">The product was successfully deleted.</string>
+    <string name="alert_dialog_product_delete_failure">An issue was encountered when attempting to delete the product. You can try again to delete the product.</string>
+    <string name="alert_dialog_products_load_failure">Unable to load products listing.</string>
+    <string name="alert_dialog_product_delete_confirm">Are you sure you want to delete this product? This action cannot be undone.</string>
+    <string name="validation_product_lookup_code">Product lookup code may not be empty.</string>
+    <string name="validation_product_count">Product count must be a number and may not be negative.</string>
+    <string name="intent_extra_product">intent_extra_product</string>
+</resources>
