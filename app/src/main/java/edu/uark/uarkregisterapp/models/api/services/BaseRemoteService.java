@@ -27,6 +27,10 @@ abstract class BaseRemoteService {
 		return this.buildPath((new PathElementInterface[0]), recordId.toString());
 	}
 
+	URL buildPath(PathElementInterface[] pathElements) {
+		return this.buildPath(pathElements, StringUtils.EMPTY);
+	}
+
 	URL buildPath(PathElementInterface[] pathElements, String parameterValue) {
 		StringBuilder completePath = (new StringBuilder(BASE_URL))
 				.append(this.apiObject.getPathValue());
@@ -266,6 +270,6 @@ abstract class BaseRemoteService {
 	private static final String ACCEPT_REQUEST_PROPERTY = "Accept";
 	private static final String JSON_PAYLOAD_TYPE = "application/json";
 	private static final String CONTENT_TYPE_REQUEST_PROPERTY = "Content-Type";
-	private static final String BASE_URL = "https://uarkregserv.herokuapp.com/api/";
-//	private static final String BASE_URL = "https://uarkregservnodejs.herokuapp.com/api/";
+	private static final String BASE_URL = "https://uarkregserv-sprint2.herokuapp.com/api/";
+//	private static final String BASE_URL = "https://uarkregservnodejs-sprint2.herokuapp.com/api/";
 }

@@ -19,24 +19,42 @@
         android:textSize="30sp"
         android:text="@string/text_view_landing_welcome"/>
 
-    <Button
-        android:id="@+id/button_list_products"
+    <TextView
+        android:id="@+id/text_view_please_sign_in"
+        android:layout_below="@+id/text_view_welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/text_view_welcome"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:text="@string/button_all_products"
-        android:onClick="displayAllProductsButtonOnClick"/>
+        android:textSize="20sp"
+        android:text="@string/text_view_please_sign_in"
+        android:layout_marginTop="5dp"/>
+
+    <EditText
+        android:id="@+id/edit_text_employee_id"
+        android:hint="@string/text_view_login_employee_id"
+        android:inputType="text"
+        android:layout_below="@+id/text_view_please_sign_in"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:id="@+id/edit_text_password"
+        android:hint="@string/text_view_login_password"
+        android:inputType="textPassword"
+        android:layout_below="@+id/edit_text_employee_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"/>
 
     <Button
-        android:id="@+id/button_create_product"
+        android:id="@+id/button_sign_in"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button_list_products"
+        android:layout_below="@+id/edit_text_password"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:text="@string/button_create_product"
-        android:onClick="createProductButtonOnClick"/>
+        android:text="@string/button_sign_in"
+        android:onClick="signInButtonOnClick"/>
 
 </RelativeLayout>
