@@ -6,10 +6,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum EmployeeClassification {
-    NOT_DEFINED(0),
-    GENERAL_MANAGER(1),
-    SHIFT_MANAGER(2),
-    CASHIER(3);
+    NOT_DEFINED(-1),
+    GENERAL_MANAGER(2),
+    SHIFT_MANAGER(3),
+    CASHIER(4);
 
     public int getValue() {
         return value;

@@ -11,10 +11,9 @@ import android.widget.EditText;
 
 import org.apache.commons.lang3.StringUtils;
 
-import edu.uark.uarkregisterapp.models.api.ActiveEmployeeCounts;
 import edu.uark.uarkregisterapp.models.api.ApiResponse;
 import edu.uark.uarkregisterapp.models.api.Employee;
-import edu.uark.uarkregisterapp.models.api.EmployeeLogin;
+import edu.uark.uarkregisterapp.models.api.EmployeeSignIn;
 import edu.uark.uarkregisterapp.models.api.services.EmployeeService;
 import edu.uark.uarkregisterapp.models.transition.EmployeeTransition;
 
@@ -30,7 +29,7 @@ public class LandingActivity extends AppCompatActivity {
 	protected void onStart() {
 		super.onStart();
 
-		(new QueryActiveEmployeeCountsTask()).execute();
+		(new QueryActiveEmployeeExistsTask()).execute();
 	}
 
 	public void signInButtonOnClick(View view) {
@@ -55,7 +54,7 @@ public class LandingActivity extends AppCompatActivity {
 		}
 
 		(new SignInTask()).execute(
-			(new EmployeeLogin())
+			(new EmployeeSignIn())
 				.setEmployeeId(this.getEmployeeIdEditText().getText().toString())
 				.setPassword(this.getPasswordEditText().getText().toString())
 		);
@@ -69,15 +68,15 @@ public class LandingActivity extends AppCompatActivity {
 		return (EditText) this.findViewById(R.id.edit_text_password);
 	}
 
-	private class QueryActiveEmployeeCountsTask extends AsyncTask<Void, Void, ApiResponse<ActiveEmployeeCounts>> {
+	private class QueryActiveEmployeeExistsTask extends AsyncTask<Void, Void, ApiResponse<Boolean>> {
 		@Override
-		protected ApiResponse<ActiveEmployeeCounts> doInBackground(Void... params) {
-			return (new EmployeeService()).getActiveEmployeeCounts();
+		protected ApiResponse<Boolean> doInBackground(Void... params) {
+			return (new EmployeeService()).getActiveEmployeeExists();
 		}
 
 		@Override
-		protected void onPostExecute(ApiResponse<ActiveEmployeeCounts> apiResponse) {
-			if (apiResponse.isValidResponse() && this.activeEmployeeExists(apiResponse.getData())) {
+		protected void onPostExecute(ApiResponse<Boolean> apiResponse) {
+			if (apiResponse.isValidResponse() && apiResponse.getData()) {
 				return;
 			}
 
@@ -96,16 +95,9 @@ public class LandingActivity extends AppCompatActivity {
 				.create()
 				.show();
 		}
-
-		private boolean activeEmployeeExists(ActiveEmployeeCounts activeEmployeeCounts) {
-			return (
-				(activeEmployeeCounts.getActiveCashierCount() > 0)
-				|| (activeEmployeeCounts.getActiveShiftManagerCount() > 0)
-				|| (activeEmployeeCounts.getActiveGeneralManagerCount() > 0));
-		}
 	}
 
-	private class SignInTask extends AsyncTask<EmployeeLogin, Void, ApiResponse<Employee>> {
+	private class SignInTask extends AsyncTask<EmployeeSignIn, Void, ApiResponse<Employee>> {
 		@Override
 		protected void onPreExecute() {
 			this.signInAlert = new AlertDialog.Builder(LandingActivity.this)
@@ -115,9 +107,9 @@ public class LandingActivity extends AppCompatActivity {
 		}
 
 		@Override
-		protected ApiResponse<Employee> doInBackground(EmployeeLogin... employeeLogins) {
-			if (employeeLogins.length > 0) {
-				return (new EmployeeService()).logIn(employeeLogins[0]);
+		protected ApiResponse<Employee> doInBackground(EmployeeSignIn... employeeSignIns) {
+			if (employeeSignIns.length > 0) {
+				return (new EmployeeService()).signIn(employeeSignIns[0]);
 			} else {
 				return (new ApiResponse<Employee>())
 					.setValidResponse(false);

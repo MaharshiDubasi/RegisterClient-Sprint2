@@ -31,7 +31,7 @@
 
     <EditText
         android:id="@+id/edit_text_employee_id"
-        android:hint="@string/text_view_login_employee_id"
+        android:hint="@string/text_view_sign_in_employee_id"
         android:inputType="text"
         android:layout_below="@+id/text_view_please_sign_in"
         android:layout_width="match_parent"
@@ -40,7 +40,7 @@
 
     <EditText
         android:id="@+id/edit_text_password"
-        android:hint="@string/text_view_login_password"
+        android:hint="@string/text_view_sign_in_password"
         android:inputType="textPassword"
         android:layout_below="@+id/edit_text_employee_id"
         android:layout_width="match_parent"

@@ -18,8 +18,8 @@
     <string name="text_view_landing_welcome">UARK Register App</string>
     <string name="text_view_please_sign_in">Please Sign In</string>
     <string name="text_view_products_lookup_code">LookupCode</string>
-    <string name="text_view_login_employee_id">Employee ID</string>
-    <string name="text_view_login_password">Password</string>
+    <string name="text_view_sign_in_employee_id">Employee ID</string>
+    <string name="text_view_sign_in_password">Password</string>
     <string name="text_view_products_count">0</string>
     <string name="text_view_products_created_on">01/01/1970</string>
     <string name="text_view_label_products_lookup_code">Lookup Code:</string>

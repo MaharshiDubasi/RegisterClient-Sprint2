@@ -4,15 +4,15 @@ import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import edu.uark.uarkregisterapp.models.api.fields.EmployeeLoginFieldName;
+import edu.uark.uarkregisterapp.models.api.fields.EmployeeSignInFieldName;
 import edu.uark.uarkregisterapp.models.api.interfaces.ConvertToJsonInterface;
 
-public class EmployeeLogin implements ConvertToJsonInterface {
+public class EmployeeSignIn implements ConvertToJsonInterface {
     private String employeeId;
     public String getEmployeeId() {
         return this.employeeId;
     }
-    public EmployeeLogin setEmployeeId(String employeeId) {
+    public EmployeeSignIn setEmployeeId(String employeeId) {
         this.employeeId = employeeId;
         return this;
     }
@@ -20,7 +20,7 @@ public class EmployeeLogin implements ConvertToJsonInterface {
     public String getPassword() {
         return this.password;
     }
-    public EmployeeLogin setPassword(String password) {
+    public EmployeeSignIn setPassword(String password) {
         this.password = password;
         return this;
     }
@@ -30,8 +30,8 @@ public class EmployeeLogin implements ConvertToJsonInterface {
         JSONObject jsonObject = new JSONObject();
 
         try {
-            jsonObject.put(EmployeeLoginFieldName.EMPLOYEE_ID.getFieldName(), this.employeeId);
-            jsonObject.put(EmployeeLoginFieldName.PASSWORD.getFieldName(), this.password);
+            jsonObject.put(EmployeeSignInFieldName.EMPLOYEE_ID.getFieldName(), this.employeeId);
+            jsonObject.put(EmployeeSignInFieldName.PASSWORD.getFieldName(), this.password);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -39,7 +39,7 @@ public class EmployeeLogin implements ConvertToJsonInterface {
         return jsonObject;
     }
 
-    public EmployeeLogin() {
+    public EmployeeSignIn() {
         this.password = StringUtils.EMPTY;
         this.employeeId = StringUtils.EMPTY;
     }

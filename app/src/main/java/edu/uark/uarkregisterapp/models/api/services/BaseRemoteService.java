@@ -252,6 +252,7 @@ abstract class BaseRemoteService {
 			(responseCode == HttpURLConnection.HTTP_OK)
 			|| (responseCode == HttpURLConnection.HTTP_CREATED)
 			|| (responseCode == HttpURLConnection.HTTP_ACCEPTED)
+			|| (responseCode == HttpURLConnection.HTTP_NO_CONTENT)
 		);
 	}
 
